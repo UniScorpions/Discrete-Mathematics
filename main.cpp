@@ -8,15 +8,6 @@
 
 using namespace std;
 
-//namespace scorp {
-//	string preprocess(string str) {
-//		regex pattern{ "(\\w+)\\.(\\w+)\\((.+)\\)" };
-//		while (regex_search(str, pattern)) 
-//			str = regex_replace(str, pattern, "$2($1, $3)");
-//		return str;
-//	}
-//}
-
 Graph graphFromFile(const string& fileName) {
 	ifstream file{ fileName };
 	Graph graph;
@@ -35,16 +26,6 @@ Graph graphFromFile(const string& fileName) {
 }
 
 int main() {
-	//string str = "g.connect(4, 3); g.connect(54, 5); f = g;";
-	//regex reg{ R"(\s*;\s*)" };
-	//std::vector<std::string> statements;
-	//std::copy(std::sregex_token_iterator(str.begin(), str.end(), reg, -1),
-	//	std::sregex_token_iterator(),
-	//	std::back_inserter(statements));
-	//string token = R"((\d+)|(\w))";
-	//const auto parser = make_parser(operators, functions, token);
-	//for (const auto statement : statements)
-	//	cout << parser.toPostfix(scorp::preprocess(statement)) << endl;
 	auto fileName = "input.txt";
 	auto g = graphFromFile(fileName);
 	if (isConnected(g))
