@@ -14,10 +14,6 @@ inline void bfs(std::tuple<const Graph&, const int, std::set<int>&> t, const std
 		q.pop();
 		f(vertex);
 		for (const auto adjVertex : graph[vertex])
-			//if (!visited.contains(adjVertex)) {
-			//	q.push(adjVertex);
-			//	visited.insert(adjVertex);
-			//}
 			if (visited.insert(adjVertex).second)
 				q.push(adjVertex);
 	}
@@ -28,17 +24,6 @@ inline bool isConnected(const Graph& graph) {
 		return false;
 	const auto v = graph.begin()->first;
 	std::set<int> visited;
-	//queue<int> q;
-	//q.push(v);
-	//while (!q.empty()) {
-	//	const auto vertex = q.front();
-	//	q.pop();
-	//	for (const auto adjVertex : graph[vertex])
-	//		if (!visited.contains(adjVertex)) {
-	//			q.push(adjVertex);
-	//			visited.insert(adjVertex);
-	//		}
-	//}	
 	bfs({ graph, v, visited });
 	return graph.size() == visited.size();
 }
@@ -52,18 +37,6 @@ inline std::vector<std::vector<int>> connectedComponents(const Graph& graph) {
 			bfs({ graph, vertex, visited }, [&vertices](int v) {
 				vertices.push_back(v);
 			});
-			//queue<int> q;
-			//q.push(vertex);
-			//while (!q.empty()) {
-			//	const auto v = q.front();
-			//	vertices.push_back(v);
-			//	q.pop();
-			//	for (const auto adjVertex : graph[v])
-			//		if (!visited.contains(adjVertex)) {
-			//			q.push(adjVertex);
-			//			visited.insert(adjVertex);
-			//		}
-			//}
 			components.push_back(vertices);
 		}
 	return components;
