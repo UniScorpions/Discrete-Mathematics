@@ -36,7 +36,6 @@ public:
 	// operators
 	bool operator==(const Graph&) const = default;
 	const std::set<int>& operator[](int) const;
-	//std::set<int>& operator[](int);
 private:
 	std::map<int, std::set<int>> graph;
 };
