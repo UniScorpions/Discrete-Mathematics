@@ -51,10 +51,6 @@ Graph::iterator Graph::end() {
 	return graph.end();
 }
 
-//std::set<int>& Graph::operator[](int k) {
-//	return const_cast<std::set<int>&>((*static_cast<const Graph*>(this)).operator[](k)); 
-//}
-
 const std::set<int>& Graph::operator[](int k) const {
 	return graph.at(k);
 }
